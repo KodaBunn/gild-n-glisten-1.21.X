@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "NIN",
+    "I I",
+    "NIN"
+  ],
+  "result": {
+    "count": 1,
+    "id": "gildglisten:melon_plate_mold"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "gildglisten:melon_plate_mold"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "L": {
+      "item": "minecraft:lava_bucket"
+    }
+  },
+  "pattern": [
+    "G",
+    "M",
+    "L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "gildglisten:melon_plate"
+  }
+}

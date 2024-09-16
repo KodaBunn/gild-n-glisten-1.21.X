@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gildglisten:silly_block"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "gildglisten:thesilly"
+  }
+}

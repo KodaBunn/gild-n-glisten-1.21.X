@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "net.kodabunn.gildglisten.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+
+  ],
+  "client": [
+
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

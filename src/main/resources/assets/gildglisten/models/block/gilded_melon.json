@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "gildglisten:block/gilded_melon_top",
+    "side": "gildglisten:block/gilded_melon_side"
+  }
+}
