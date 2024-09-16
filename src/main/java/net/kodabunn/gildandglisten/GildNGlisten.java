@@ -1,5 +1,9 @@
-package net.kodabunn.testmodwawa;
+package net.kodabunn.gildandglisten;
 
+import net.kodabunn.gildandglisten.block.ModBlocks;
+import net.kodabunn.gildandglisten.item.ModCreativeModeTabs;
+import net.kodabunn.gildandglisten.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -18,13 +22,13 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(TestModWawa.MOD_ID)
-public class TestModWawa {
-    public static final String MOD_ID = "testmodwawa";
+@Mod(GildNGlisten.MOD_ID)
+public class GildNGlisten {
+    public static final String MOD_ID = "gildandglisten";
     private static final Logger LOGGER = LogUtils.getLogger();
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public TestModWawa(IEventBus modEventBus, ModContainer modContainer) {
+    public GildNGlisten(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -32,6 +36,11 @@ public class TestModWawa {
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+
+        ModCreativeModeTabs.register(modEventBus);
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -46,7 +55,13 @@ public class TestModWawa {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.THESILLY);
+        }
 
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.SILLY_BLOCK);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
