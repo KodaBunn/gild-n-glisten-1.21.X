@@ -6,6 +6,6 @@ import net.minecraft.world.food.FoodProperties;
 
 public class ModFoodProperties {
     public static final FoodProperties GLISTEN = new FoodProperties.Builder()
-            .nutrition(3).saturationModifier(0.8f)
-            .effect(() -> new MobEffectInstance(MobEffects.HEAL),1f).build();
+            .nutrition(3).saturationModifier(0f).alwaysEdible()
+            .effect(() -> new MobEffectInstance(MobEffects.HEAL, 1),1f).build();
 }
