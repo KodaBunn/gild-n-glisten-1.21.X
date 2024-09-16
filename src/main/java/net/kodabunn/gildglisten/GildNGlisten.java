@@ -2,6 +2,7 @@ package net.kodabunn.gildglisten;
 
 import net.kodabunn.gildglisten.block.ModBlocks;
 import net.kodabunn.gildglisten.item.ModCreativeModeTabs;
+import net.kodabunn.gildglisten.item.ModFoodProperties;
 import net.kodabunn.gildglisten.item.ModItems;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Items;
@@ -44,19 +45,19 @@ public class GildNGlisten {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        modEventBus.addListener(this::modifyComponents);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
-        public void modifyComponents(ModifyDefaultComponentsEvent event) {
-            event.modify(Items.MELON_SEEDS, builder -> builder
-                    .set(DataComponents.MAX_STACK_SIZE, 16)); // Stack melon seeds to at most 16 items
-
-            event.modify(Items.APPLE, builder -> builder
-                    .remove(DataComponents.FOOD)); // Remove the ability of eating apples
-        }
-
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+    }
+
+    public void modifyComponents(ModifyDefaultComponentsEvent event) {
+        event.modify(Items.GLISTERING_MELON_SLICE, builder -> builder
+                .set(DataComponents.FOOD, ModFoodProperties.GLISTEN));
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
